@@ -6,16 +6,7 @@ layout: default
   {%- assign assets_path = site.assets_path -%}
 {%- endif -%}
     {% assign ws = '' %}
-    <!-- Header -->
-    <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">{{ site.data.home.intro.lead-in }}</div>
-          <div class="intro-heading text-uppercase">{{ site.data.home.intro.heading }}</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">{{ site.data.home.intro.btn }}</a>
-        </div>
-      </div>
-    </header>
+
 
     <!-- Services -->
     <section id="services">
@@ -106,19 +97,19 @@ layout: default
     </section>
     {%- endif -%}
 
-    <!-- About -->
-    <section id="about">
+    <!-- Recent Highlights -->
+    <section id="highlights">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">{{ site.data.home.about.heading }}</h2>
-            <h3 class="section-subheading text-muted">{{ site.data.home.about.subheading  }}</h3>
+            <h2 class="section-heading text-uppercase">{{ site.data.home.work.heading }}</h2>
+            <h3 class="section-subheading text-muted">{{ site.data.home.work.subheading  }}</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
             <ul class="timeline">
-              {%- for time in site.data.home.about.timeline -%}
+              {%- for time in site.data.home.work.clients -%}
               {% assign ws = '' %}
               <li{% cycle '', ' class="timeline-inverted"' %}>
                 <div class="timeline-image">
@@ -138,9 +129,9 @@ layout: default
               {% assign ws = '' %}
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <h4>{{ site.data.home.about.end1 }}
-                    <br>{{ site.data.home.about.end2 }}
-                    <br>{{ site.data.home.about.end3 }}</h4>
+                  <h4>{{ site.data.home.work.end1 }}
+                    <br>{{ site.data.home.work.end2 }}
+                    <br>{{ site.data.home.work.end3 }}</h4>
                 </div>
               </li>
             </ul>
@@ -148,6 +139,7 @@ layout: default
         </div>
       </div>
     </section>
+    
 
     <!-- Team -->
     <section class="bg-light" id="team">
@@ -194,40 +186,56 @@ layout: default
       </div>
     </section>
 
+    <!-- Blog -->
+    {%- if site.posts -%}
 
-    <!-- <li{% cycle '', ' class="timeline-inverted"' %}>
-        <div class="timeline-image">
-          <img class="rounded-circle img-fluid" src="{{ assets_path }}{{ time.image }}" alt="">
-        </div>
-        <div class="timeline-panel">
-          <div class="timeline-heading">
-            <h4>{{ time.date }}</h4>
-            <h4 class="subheading">{{ time.title }}</h4>
-          </div>
-          <div class="timeline-body">
-            <p class="text-muted">{{ time.text  }}</p>
-          </div>
-        </div> -->
-        
-        
-    <!-- Clients -->
-    <!-- {%- if site.data.home.clients -%}
-    <section class="py-5">
+    <!-- {%- for post in site.posts -%}
+    <h3>post is {{post.title}}</h3>
+    {%- endfor -%} -->
+
+    <section class="bg-light" id="posts">
       <div class="container">
         <div class="row">
-          {%- for client in site.data.home.clients -%}
-          {% assign ws = '' %}
-          <div class="col-md-3 col-sm-6">
-            <a href="{{ client.url }}">
-              <img class="img-fluid d-block mx-auto" src="{{ assets_path }}{{ client.img }}" alt="">
-            </a>
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">{{ site.data.home.blog.heading }}</h2>
+            <h3 class="section-subheading text-muted">{{ site.data.home.blog.subheading }}</h3>
           </div>
-          {%-  endfor -%}
-        {% assign ws = '' %}
         </div>
+        
+        <div class="row">
+          {% assign ws = '' %}
+          <div class="col">
+            {%- assign post = site.posts.first -%}
+            <h2>{{ post.title }}</h2>
+            {%- for category in post.categories -%}
+            <a class="text-capitalize text-muted smoothscroll"
+              href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a>
+            <span class="sep">, </span>
+            {% endfor %}
+          </div>
+        
+          {% assign remaining = site.posts | slice:1, 3 %}
+          <!-- <h1>Remaining is {{ remaining.first.title }}</h1> -->
+          {% if remaining.size != 0 %}
+          <div class="col-sm-4">
+            {%- for post in remaining -%}
+            <div class="row">
+              {% assign ws = '' %}
+              <h3>{{ post.title }}</h3>
+              {%- for category in post.categories -%}
+              <a class="text-capitalize text-muted smoothscroll"
+                href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a>
+              <span class="sep">, </span>
+              {%- endfor -%}
+            </div>
+            {%- endfor -%}
+          </div>
+          {% endif %}
+        </div>
+
       </div>
     </section>
-    {%- endif -%}     -->
+    {%- endif -%}
 
     <!-- Contact -->
     <section id="contact">

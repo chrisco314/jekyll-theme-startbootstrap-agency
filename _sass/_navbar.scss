@@ -1,5 +1,15 @@
+@mixin dark-background {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: $gray-900;
+  .navbar-brand {
+    font-size: 1.25em;
+    padding: 12px 0;
+  }
+}
+
 // Styling for the navbar
-#mainNav {
+.navbar-agency {
   background-color: $gray-900;
   .navbar-toggler {
     font-size: 12px;
@@ -39,7 +49,7 @@
   }
 }
 @media(min-width:992px) {
-  #mainNav {
+  .navbar-agency {
     padding-top: 25px;
     padding-bottom: 25px;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -61,13 +71,11 @@
       }
     }
     &.navbar-shrink {
-      padding-top: 0;
-      padding-bottom: 0;
-      background-color: $gray-900;
-      .navbar-brand {
-        font-size: 1.25em;
-        padding: 12px 0;
-      }
+      @include dark-background;
     }
   }
+}
+
+#blogNav {
+  @include dark-background;
 }

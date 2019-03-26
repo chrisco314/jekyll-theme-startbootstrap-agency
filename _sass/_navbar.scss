@@ -1,7 +1,7 @@
 @mixin dark-background {
   padding-top: 0;
   padding-bottom: 0;
-  background-color: $gray-900;
+  background-color: $menu-background;
   .navbar-brand {
     font-size: 1.25em;
     padding: 12px 0;
@@ -10,7 +10,8 @@
 
 // Styling for the navbar
 .navbar-agency {
-  background-color: $gray-900;
+  // background-color: $gray-900;
+  background-color: $menu-background;
   .navbar-toggler {
     font-size: 12px;
     right: 0;
@@ -70,6 +71,7 @@
         }
       }
     }
+    
     &.navbar-shrink {
       @include dark-background;
     }

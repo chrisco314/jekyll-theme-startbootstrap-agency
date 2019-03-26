@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">{{ site.data.home.blog.heading }}</h2>
-            <h3 class="section-subheading text-muted">{{ site.data.home.blog.subheading }}</h3>
+            <h3 class="section-subheading text-details">{{ site.data.home.blog.subheading }}</h3>
           </div>
         </div>
         
@@ -18,9 +18,12 @@
           {% assign ws = '' %}
           <div class="col">
             {%- assign post = site.posts.first -%}
-            <h2>{{ post.title }}</h2>
+            <h2>
+                <a class="text-capitalize text-details smoothscroll"
+                    href="{{site.baseurl}}/blog">{{ post.title }}</a>
+            </h2>
             {%- for category in post.categories -%}
-            <a class="text-capitalize text-muted smoothscroll"
+            <a class="text-capitalize text-details smoothscroll"
               href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a>
             <span class="sep">, </span>
             {% endfor %}
@@ -35,7 +38,7 @@
               {% assign ws = '' %}
               <h3>{{ post.title }}</h3>
               {%- for category in post.categories -%}
-              <a class="text-capitalize text-muted smoothscroll"
+              <a class="text-capitalize text-details smoothscroll"
                 href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a>
               <span class="sep">, </span>
               {%- endfor -%}

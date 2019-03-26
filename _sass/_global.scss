@@ -31,6 +31,10 @@ h6 {
 
 section {
   padding: 100px 0;
+  .text-details { 
+    color: rgba($white, 0.75) !important;
+    font-weight: 300;
+  }
   h2.section-heading {
     font-size: 40px;
     margin-top: 0;

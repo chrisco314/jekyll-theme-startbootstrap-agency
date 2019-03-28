@@ -13,7 +13,18 @@ section.masthead {
       margin-bottom: 25px;
       @include serif-font;
     }
+    .one-word-per-line {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      
+      text-align: center;
+    } 
     .intro-heading {
+      word-spacing: 100vw;
+
       font-size: 50px;
       font-weight: 700;
       line-height: 50px;

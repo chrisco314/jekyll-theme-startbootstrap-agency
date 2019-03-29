@@ -49,6 +49,7 @@
     padding-bottom: 80px;
     padding-left: 30px;
     clip-path: polygon( 0 3vw, 100% 0, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon( 0 3vw, 100% 0, 100% 100%, 0 100%);
 }
 
 .section {
@@ -58,6 +59,7 @@
     padding-bottom: 80px;
     padding-left: 50px;
     clip-path: polygon( 0 3vw, 100% 0, 100% calc(100% - 3vw), 0 100%);
+    -webkit-clip-path: polygon( 0 3vw, 100% 0, 100% calc(100% - 3vw), 0 100%);
 }
 
 .gradient-1 {
